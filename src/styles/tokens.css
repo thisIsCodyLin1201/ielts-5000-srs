@@ -1,0 +1,112 @@
+/* Design tokens — a clean, modern mobile design language.
+   Brand is azure blue (#3397CF); green is reserved for success only.
+   Clean, high-whitespace flat design with rounded cards and soft elevation. */
+
+:root {
+  /* ---- Brand / Blue ramp ---- */
+  --blue-100: #e7f3f9;
+  --blue-200: #b3e3f5;
+  --blue-400: #5ab0db;
+  --blue-500: #3397cf; /* primary */
+  --blue-600: #006aa6;
+  --blue-700: #145282;
+
+  /* ---- Semantic state colors (same in light/dark) ---- */
+  --success: #49bd69;
+  --success-hover: #6fc985;
+  --warning: #f0a955;
+  --warning-hover: #f0b941;
+  --danger: #ea5c5c;
+  --danger-hover: #f78c88;
+  --premium: #ffc51b;
+
+  /* ---- Type & layout scales ---- */
+  --font-family: -apple-system, BlinkMacSystemFont, "PingFang TC",
+    "Microsoft JhengHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-en: "SF Pro Text", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-pill: 9999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --maxw: 600px;
+}
+
+/* ---- Light theme (default) ---- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --primary: var(--blue-500);
+  --primary-hover: var(--blue-400);
+  --primary-active: var(--blue-600);
+  --on-primary: #ffffff;
+
+  --bg: #f2f2f2;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --container: rgba(0, 0, 0, 0.05);
+  --container-strong: rgba(0, 0, 0, 0.08);
+
+  --text: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.5);
+  --text-hint: rgba(0, 0, 0, 0.35);
+  --text-disabled: rgba(0, 0, 0, 0.2);
+
+  --border: #cacaca;
+  --separator: rgba(0, 0, 0, 0.1);
+
+  --btn-disabled-bg: #e0e0e0;
+
+  --shadow-card: 0 1px 6px -2px rgba(0, 0, 0, 0.32);
+  --shadow-menu: 0 2px 8px -1px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 3px 12px 0 rgba(0, 0, 0, 0.18);
+  --shadow-float: 0 6px 24px 0 rgba(0, 0, 0, 0.12);
+
+  --primary-soft: var(--blue-100);
+}
+
+/* ---- Dark theme ---- */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --primary: var(--blue-500);
+  --primary-hover: var(--blue-400);
+  --primary-active: var(--blue-200);
+  --on-primary: #ffffff;
+
+  --bg: #000000;
+  --surface: #1c1c1c;
+  --surface-raised: #2c2c2c;
+  --container: rgba(255, 255, 255, 0.08);
+  --container-strong: rgba(255, 255, 255, 0.15);
+
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-hint: rgba(255, 255, 255, 0.4);
+  --text-disabled: rgba(255, 255, 255, 0.15);
+
+  --border: #474747;
+  --separator: rgba(255, 255, 255, 0.15);
+
+  --btn-disabled-bg: #6b6b6b;
+
+  --shadow-card: 0 1px 6px -2px rgba(0, 0, 0, 0.6);
+  --shadow-menu: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+  --shadow-float: 0 6px 24px 0 rgba(0, 0, 0, 0.6);
+
+  --primary-soft: rgba(51, 151, 207, 0.16);
+}

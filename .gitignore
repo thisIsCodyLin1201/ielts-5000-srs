@@ -1,0 +1,8 @@
+node_modules
+dist
+_extract
+*.local
+.DS_Store
+.vscode
+# the source PDF is not redistributed in the repo
+*.pdf

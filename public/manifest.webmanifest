@@ -1,0 +1,14 @@
+{
+  "name": "IELTS 5000・背單字",
+  "short_name": "IELTS 5000",
+  "description": "用間隔重複 (SM-2) 高效背誦 IELTS 5000 核心單字",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2f2f2",
+  "theme_color": "#3397cf",
+  "icons": [
+    { "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
