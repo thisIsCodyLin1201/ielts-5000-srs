@@ -98,7 +98,9 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
   padding: var(--space-6) var(--space-5);
-  flex: 1;
+  /* grow to fill when content is short, but never shrink below content height
+     (basis:auto) so a long answer + example can't spill out past the frame */
+  flex: 1 0 auto;
   min-height: 340px;
   display: flex;
   flex-direction: column;
@@ -123,6 +125,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .card__center {
   flex: 1;
+  min-width: 0;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
@@ -177,11 +180,11 @@ button { font-family: inherit; cursor: pointer; }
   font-family: var(--font-en);
   font-size: clamp(28px, 7vw, 40px); font-weight: 600; letter-spacing: -0.6px;
   display: flex; align-items: center; justify-content: center; gap: var(--space-3);
-  flex-wrap: wrap;
+  flex-wrap: wrap; overflow-wrap: anywhere;
 }
 .answer__meaning {
   font-size: 18px; line-height: 1.7; color: var(--text);
-  text-align: left; white-space: pre-wrap;
+  text-align: left; white-space: pre-wrap; overflow-wrap: break-word;
 }
 .answer__variants {
   margin-top: var(--space-3); font-size: 13px; color: var(--text-hint);
@@ -207,9 +210,9 @@ button { font-family: inherit; cursor: pointer; }
   border-left: 3px solid var(--primary);
 }
 .example__label { font-size: 12px; font-weight: 600; color: var(--text-hint); letter-spacing: 0.5px; margin-bottom: 6px; }
-.example__en { font-family: var(--font-en); font-size: 16px; line-height: 1.65; color: var(--text); margin: 0; }
+.example__en { font-family: var(--font-en); font-size: 16px; line-height: 1.65; color: var(--text); margin: 0; overflow-wrap: break-word; }
 .example__en b { color: var(--primary); font-weight: 700; }
-.example__zh { font-size: 14px; color: var(--text-secondary); margin: 6px 0 0; line-height: 1.6; }
+.example__zh { font-size: 14px; color: var(--text-secondary); margin: 6px 0 0; line-height: 1.6; overflow-wrap: break-word; }
 .example__tts { display: inline-flex; vertical-align: middle; margin-left: 4px; }
 .tts-btn--sm { width: 30px; height: 30px; }
 .tts-btn--sm svg { width: 18px; height: 18px; }
