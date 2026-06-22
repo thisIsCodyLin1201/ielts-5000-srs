@@ -89,12 +89,26 @@ function build() {
     for (const p of c.phrases) p.meaning = tidy(p.meaning);
   }
 
+  // attach generated example sentences (data/examples.json: { id: { en, zh } }), if present
+  const EXAMPLES = path.join(root, 'data', 'examples.json');
+  let exCount = 0;
+  let examples = {};
+  if (fs.existsSync(EXAMPLES)) {
+    try { examples = JSON.parse(fs.readFileSync(EXAMPLES, 'utf8')); } catch { examples = {}; }
+  }
+  for (const c of cards) {
+    const ex = examples[c.id];
+    c.example = ex && ex.en ? { en: ex.en, zh: ex.zh || '' } : null;
+    if (c.example) exCount++;
+  }
+
   fs.writeFileSync(OUT, JSON.stringify(cards));
 
   const byCat = {};
   for (const c of cards) byCat[c.category] = (byCat[c.category] || 0) + 1;
   console.log(`[build-deck] ${cards.length} words ->`, path.relative(root, OUT));
   console.log('[build-deck] by category:', JSON.stringify(byCat));
+  console.log(`[build-deck] example sentences: ${exCount}/${cards.length}`);
   if (anomalies.length) console.warn('[build-deck] anomalies:', anomalies.length, anomalies.slice(0, 5));
 }
 

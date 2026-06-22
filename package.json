@@ -6,6 +6,7 @@
   "description": "IELTS 5000 words — spaced-repetition flashcards for English vocabulary",
   "scripts": {
     "build:deck": "node scripts/build-deck.mjs",
+    "gen:examples": "node scripts/generate-examples.mjs",
     "predev": "node scripts/build-deck.mjs",
     "dev": "vite",
     "prebuild": "node scripts/build-deck.mjs",

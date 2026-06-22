@@ -22,6 +22,28 @@ function Variants({ card }: { card: Card }) {
   return <div className="answer__variants"><b>亦作</b> {card.variants.join(', ')}</div>;
 }
 
+function ExampleSentence({ card }: { card: Card }) {
+  if (!card.example?.en) return null;
+  const { en, zh } = card.example;
+  // render **word** segments as bold; TTS reads the marker-stripped sentence
+  const parts = en.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
+  const plain = en.replace(/\*\*/g, '');
+  return (
+    <div className="example">
+      <div className="example__label">例句</div>
+      <p className="example__en">
+        {parts.map((p, i) =>
+          p.startsWith('**') && p.endsWith('**')
+            ? <b key={i}>{p.slice(2, -2)}</b>
+            : <span key={i}>{p}</span>,
+        )}
+        <span className="example__tts"><TtsButton text={plain} compact /></span>
+      </p>
+      {zh && <p className="example__zh">{zh}</p>}
+    </div>
+  );
+}
+
 export function StudyCard() {
   const { current: card, currentState, flipped, flip, store } = useApp();
   if (!card) return null;
@@ -63,6 +85,7 @@ export function StudyCard() {
             {en2zh ? (
               <>
                 <div className="answer__meaning">{card.meaning}</div>
+                <ExampleSentence card={card} />
                 <Variants card={card} />
                 <Phrases card={card} />
               </>
@@ -76,6 +99,7 @@ export function StudyCard() {
                   <span className="pos-badge">{card.pos}</span>
                   {card.colloc && <span className="colloc-badge">{card.colloc}</span>}
                 </div>
+                <ExampleSentence card={card} />
                 <Variants card={card} />
                 <Phrases card={card} />
               </>

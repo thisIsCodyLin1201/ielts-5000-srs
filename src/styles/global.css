@@ -199,6 +199,21 @@ button { font-family: inherit; cursor: pointer; }
 .phrase b { font-family: var(--font-en); color: var(--primary); font-weight: 600; }
 .phrase span { color: var(--text-secondary); }
 
+/* example sentence */
+.example {
+  margin-top: var(--space-4); text-align: left;
+  background: var(--container); border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-3) var(--space-3);
+  border-left: 3px solid var(--primary);
+}
+.example__label { font-size: 12px; font-weight: 600; color: var(--text-hint); letter-spacing: 0.5px; margin-bottom: 6px; }
+.example__en { font-family: var(--font-en); font-size: 16px; line-height: 1.65; color: var(--text); margin: 0; }
+.example__en b { color: var(--primary); font-weight: 700; }
+.example__zh { font-size: 14px; color: var(--text-secondary); margin: 6px 0 0; line-height: 1.6; }
+.example__tts { display: inline-flex; vertical-align: middle; margin-left: 4px; }
+.tts-btn--sm { width: 30px; height: 30px; }
+.tts-btn--sm svg { width: 18px; height: 18px; }
+
 .tap-hint {
   text-align: center; color: var(--text-hint); font-size: 13px;
   display: flex; align-items: center; justify-content: center; gap: 6px;

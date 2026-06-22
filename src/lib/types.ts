@@ -15,6 +15,11 @@ export interface Phrase {
   meaning: string;
 }
 
+export interface Example {
+  en: string; // English sentence; the target word is wrapped in **double asterisks**
+  zh: string; // Traditional Chinese translation
+}
+
 /** A vocabulary card as produced by scripts/build-deck.mjs. */
 export interface Card {
   id: string;
@@ -25,6 +30,7 @@ export interface Card {
   colloc: string | null; // collocation hint, e.g. "+of" / "to…from"
   meaning: string;       // Chinese definition
   phrases: Phrase[];
+  example: Example | null; // generated example sentence (see scripts/generate-examples.mjs)
 }
 
 export type Direction = 'en2zh' | 'zh2en';
